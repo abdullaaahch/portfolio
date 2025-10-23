@@ -13,6 +13,9 @@
       background: url('https://img.freepik.com/free-photo/top-view-desk-dark-concept-with-copy-space_23-2148459511.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensure body covers the full height of the viewport */
     }
 
     header {
@@ -30,6 +33,7 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       max-width: 800px;
       margin: 0 auto;
+      flex-grow: 1; /* Ensure content grows to take available space */
     }
 
     .button-container a {
