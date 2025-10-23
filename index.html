@@ -44,39 +44,17 @@
 
     /* Flicker effect animation */
     @keyframes flicker {
-      0% {
-        opacity: 1;
-      }
-      10% {
-        opacity: 0.5;
-      }
-      20% {
-        opacity: 1;
-      }
-      30% {
-        opacity: 0.7;
-      }
-      40% {
-        opacity: 1;
-      }
-      50% {
-        opacity: 0.3;
-      }
-      60% {
-        opacity: 1;
-      }
-      70% {
-        opacity: 0.8;
-      }
-      80% {
-        opacity: 1;
-      }
-      90% {
-        opacity: 0.6;
-      }
-      100% {
-        opacity: 1;
-      }
+      0% { opacity: 1; }
+      10% { opacity: 0.5; }
+      20% { opacity: 1; }
+      30% { opacity: 0.7; }
+      40% { opacity: 1; }
+      50% { opacity: 0.3; }
+      60% { opacity: 1; }
+      70% { opacity: 0.8; }
+      80% { opacity: 1; }
+      90% { opacity: 0.6; }
+      100% { opacity: 1; }
     }
 
     header p {
@@ -87,7 +65,6 @@
 
     .button-container {
       margin-top: 30px;
-      animation: slideInLeft 1s ease-out;
     }
 
     .button-container a {
@@ -106,25 +83,6 @@
       box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
     }
 
-    /* --- Slide In Animation --- */
-    @keyframes slideInLeft {
-      from {
-        transform: translateX(-100%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
-
-    @keyframes slideInRight {
-      from {
-        transform: translateX(100%);
-      }
-      to {
-        transform: translateX(0);
-      }
-    }
-
     /* --- Design Section --- */
     .drive-section {
       background: #ffffff;
@@ -136,7 +94,6 @@
       width: 90%;
       max-width: 600px;
       box-shadow: 0 0 30px rgba(255, 159, 159, 0.2);
-      animation: slideInRight 1s ease-out;
     }
 
     .drive-section a {
@@ -172,17 +129,6 @@
       border-radius: 15px;
       overflow: hidden;
       position: relative;
-      transition: transform 0.3s ease;
-    }
-
-    .card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .card:hover {
-      transform: scale(1.05);
     }
 
     @media (max-width: 768px) {
@@ -198,7 +144,7 @@
 <body>
 
 <video autoplay muted loop class="video-background">
-    <source src="https://motionbgs.com/media/5976/cyberpunk-palm-trees.960x540.mp4" type="video/mp4">
+  <source src="https://motionbgs.com/media/5976/cyberpunk-palm-trees.960x540.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -210,7 +156,7 @@
   </div>
 </header>
 
-<!-- Flex Container for Drive Section and Photo Card -->
+<!-- Flex Container for Drive Section -->
 <div class="container">
   <!-- Google Drive Section -->
   <div class="drive-section">
@@ -218,10 +164,19 @@
     <p>Explore my creative collection:</p>
     <a href="https://drive.google.com/drive/folders/1JeHOoXHlQUOfeBhwnxhSdlw8_lnjy0kl" target="_blank">Open Google Drive</a>
   </div>
+</div>
 
-  <!-- Photo Card -->
+<!-- About and Contact Links -->
+<div class="container">
   <div class="card">
-    <img src="https://via.placeholder.com/300x400" alt="Creative Image">
+    <h3>About</h3>
+    <p>Learn more about my journey and expertise.</p>
+    <a href="about.html">About Me</a>
+  </div>
+  <div class="card">
+    <h3>Contact</h3>
+    <p>Get in touch with me for collaborations or inquiries.</p>
+    <a href="contact.html">Contact Me</a>
   </div>
 </div>
 
