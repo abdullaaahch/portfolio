@@ -6,231 +6,258 @@
 <title>Abzy Cyber Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
-  /* --- Global Styles --- */
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', Arial, sans-serif;
-    background-color: #0f0f0f;
-    color: #e0e0e0;
-    overflow-x: hidden;
-    position: relative;
-  }
+/* --- Global Styles --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(270deg, #0f0f0f, #111, #0f0f0f);
+  background-size: 600% 600%;
+  color: #e0e0e0;
+  overflow-x: hidden;
+  position: relative;
+  animation: gradientShift 20s ease infinite;
+}
 
-  /* --- Full Page Neon Particles --- */
-  .particle {
-    position: absolute;
-    width: 2px;
-    height: 2px;
-    background: #32ff7e;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: float linear infinite;
-  }
+/* --- Holographic Scan Lines Overlay --- */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: 
+    linear-gradient(rgba(50,255,126,0.05) 1px, transparent 1px),
+    repeating-linear-gradient(90deg, rgba(50,255,126,0.02), rgba(50,255,126,0.02) 2px, transparent 2px, transparent 4px);
+  background-size: 100% 4px, 4px 100%;
+  z-index: 10;
+  animation: scanLines 3s linear infinite;
+}
 
-  @keyframes float {
-    0% { transform: translateY(0) translateX(0); opacity: 0.3; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
-  }
+/* --- Full Page Neon Particles --- */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: float linear infinite;
+}
 
-  /* --- Header --- */
-  header {
-    text-align: center;
-    padding: 100px 20px 40px;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); opacity: 0.3; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-110vh) translateX(var(--drift, 0px)); opacity: 0; }
+}
 
-  header::before, header::after {
-    content: '';
-    position: absolute;
-    width: 200%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #32ff7e, transparent);
-    top: 30%;
-    left: -100%;
-    animation: scan 3s linear infinite;
-    opacity: 0.6;
-  }
+/* --- Header --- */
+header {
+  text-align: center;
+  padding: 100px 20px 40px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
 
-  header::after {
-    top: 70%;
-    animation-delay: 1.5s;
-  }
+header::before, header::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #32ff7e, transparent);
+  top: 30%;
+  left: -100%;
+  animation: scan 3s linear infinite;
+  opacity: 0.6;
+}
 
-  @keyframes scan {
-    0% { left: -100%; }
-    100% { left: 100%; }
-  }
+header::after {
+  top: 70%;
+  animation-delay: 1.5s;
+}
 
-  .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    position: relative;
-    z-index: 2;
-  }
+@keyframes scan {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
 
-  .logo-icon {
-    width: 70px;
-    height: 50px;
-    border-radius: 12px;
-    background: radial-gradient(circle at 30% 30%, #32ff7e, #0f0f0f);
-    box-shadow: 0 0 25px #32ff7e, 0 0 50px #32ff7e inset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Orbitron', sans-serif;
-    font-weight: 800;
-    font-size: 1.4em;
-    color: #0f0f0f;
-    animation: neonGlow 3s ease-in-out infinite alternate;
-  }
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  position: relative;
+  z-index: 2;
+}
 
-  header h1 {
-    margin: 0;
-    font-family: 'Orbitron', sans-serif;
-    font-size: 3em;
-    color: #32ff7e;
-    text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e, 0 0 30px #32ff7e;
-    animation: flicker 2s infinite alternate;
-    position: relative;
-    z-index: 2;
-  }
+.logo-icon {
+  width: 70px;
+  height: 50px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 30% 30%, #32ff7e, #0f0f0f);
+  box-shadow: 0 0 25px #32ff7e, 0 0 50px #32ff7e inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 800;
+  font-size: 1.4em;
+  color: #0f0f0f;
+  animation: neonGlow 3s ease-in-out infinite alternate;
+}
 
-  header p {
-    margin-top: 10px;
-    font-size: 1.1em;
-    opacity: 0.8;
-    position: relative;
-    z-index: 2;
-  }
+header h1 {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3em;
+  color: #32ff7e;
+  text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e, 0 0 30px #32ff7e;
+  animation: flicker 2s infinite alternate;
+  position: relative;
+  z-index: 2;
+}
 
-  /* --- Section Titles --- */
-  .section-title {
-    text-align: center;
-    font-size: 1.6em;
-    font-weight: 700;
-    margin: 40px 0 15px;
-    color: #32ff7e;
-    text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e;
-  }
+header p {
+  margin-top: 10px;
+  font-size: 1.1em;
+  opacity: 0.8;
+  position: relative;
+  z-index: 2;
+}
 
-  /* --- Container --- */
-  .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
-  }
+/* --- Section Titles --- */
+.section-title {
+  text-align: center;
+  font-size: 1.6em;
+  font-weight: 700;
+  margin: 40px 0 15px;
+  color: #32ff7e;
+  text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e;
+}
 
-  /* --- Project Cards --- */
-  .project {
-    background: #111;
-    border-radius: 15px;
-    padding: 25px;
-    text-align: center;
-    border: 1px solid #32ff7e;
-    box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    cursor: pointer;
-  }
+/* --- Container --- */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
 
-  .project:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 30px #32ff7e, 0 0 60px #32ff7e inset;
-  }
+/* --- Project Cards --- */
+.project {
+  background: #111;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  border: 1px solid #32ff7e;
+  box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
 
-  /* --- Cyberpunk click glitch effect --- */
-  .project:active {
-    animation: clickGlitch 0.4s forwards;
-  }
+.project:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 30px #32ff7e, 0 0 60px #32ff7e inset;
+}
 
-  @keyframes clickGlitch {
-    0% { transform: scale(1); box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset; }
-    20% { transform: scale(0.95) skewX(5deg); box-shadow: 0 0 35px #32ff7e, 0 0 50px #32ff7e inset; }
-    40% { transform: scale(1.05) skewY(5deg); box-shadow: 0 0 50px #32ff7e, 0 0 70px #32ff7e inset; }
-    60% { transform: scale(0.98) skewX(-5deg); box-shadow: 0 0 35px #32ff7e, 0 0 50px #32ff7e inset; }
-    80% { transform: scale(1.02) skewY(-3deg); box-shadow: 0 0 40px #32ff7e, 0 0 60px #32ff7e inset; }
-    100% { transform: scale(1); box-shadow: 0 0 20px #32ff7e, 0 0 40px #32ff7e inset; }
-  }
+/* --- Cyberpunk click glitch effect --- */
+.project:active {
+  animation: clickGlitch 0.4s forwards;
+}
 
-  .project h3 {
-    color: #32ff7e;
-    margin-bottom: 12px;
-    text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e;
-  }
+@keyframes clickGlitch {
+  0% { transform: scale(1); box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset; }
+  20% { transform: scale(0.95) skewX(5deg); box-shadow: 0 0 35px #32ff7e, 0 0 50px #32ff7e inset; }
+  40% { transform: scale(1.05) skewY(5deg); box-shadow: 0 0 50px #32ff7e, 0 0 70px #32ff7e inset; }
+  60% { transform: scale(0.98) skewX(-5deg); box-shadow: 0 0 35px #32ff7e, 0 0 50px #32ff7e inset; }
+  80% { transform: scale(1.02) skewY(-3deg); box-shadow: 0 0 40px #32ff7e, 0 0 60px #32ff7e inset; }
+  100% { transform: scale(1); box-shadow: 0 0 20px #32ff7e, 0 0 40px #32ff7e inset; }
+}
 
-  .project a {
-    color: #32ff7e;
-    text-decoration: none;
-    font-weight: bold;
-    border: 1px solid #32ff7e;
-    padding: 10px 18px;
-    border-radius: 10px;
-    display: inline-block;
-    transition: all 0.3s ease;
-  }
+.project h3 {
+  color: #32ff7e;
+  margin-bottom: 12px;
+  text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e;
+}
 
-  .project a:hover {
-    background: #32ff7e;
-    color: #0f0f0f;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #32ff7e, 0 0 40px #32ff7e inset;
-  }
+.project a {
+  color: #32ff7e;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #32ff7e;
+  padding: 10px 18px;
+  border-radius: 10px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
 
-  /* --- Drive Section --- */
-  .drive-section {
-    background: #111;
-    color: #32ff7e;
-    padding: 40px;
-    border-radius: 18px;
-    text-align: center;
-    margin: 50px auto 30px;
-    width: 90%;
-    max-width: 600px;
-    box-shadow: 0 0 30px #32ff7e, 0 0 60px #32ff7e inset;
-  }
+.project a:hover {
+  background: #32ff7e;
+  color: #0f0f0f;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #32ff7e, 0 0 40px #32ff7e inset;
+}
 
-  .drive-section a {
-    color: #0f0f0f;
-    background: #32ff7e;
-    padding: 12px 25px;
-    border-radius: 10px;
-    display: inline-block;
-    font-weight: bold;
-    transition: all 0.3s ease;
-  }
+/* --- Drive Section --- */
+.drive-section {
+  background: #111;
+  color: #32ff7e;
+  padding: 40px;
+  border-radius: 18px;
+  text-align: center;
+  margin: 50px auto 30px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 0 30px #32ff7e, 0 0 60px #32ff7e inset;
+}
 
-  .drive-section a:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #32ff7e;
-  }
+.drive-section a {
+  color: #0f0f0f;
+  background: #32ff7e;
+  padding: 12px 25px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
 
-  /* --- Animations --- */
-  @keyframes neonGlow {
-    0% { box-shadow: 0 0 25px #32ff7e, 0 0 50px #32ff7e inset; }
-    50% { box-shadow: 0 0 40px #32ff7e, 0 0 70px #32ff7e inset; }
-    100% { box-shadow: 0 0 25px #32ff7e, 0 0 50px #32ff7e inset; }
-  }
+.drive-section a:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #32ff7e;
+}
 
-  @keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-    20%, 24%, 55% { opacity: 0.4; }
-  }
+/* --- Animations --- */
+@keyframes neonGlow {
+  0% { box-shadow: 0 0 25px #32ff7e, 0 0 50px #32ff7e inset; }
+  50% { box-shadow: 0 0 40px #32ff7e, 0 0 70px #32ff7e inset; }
+  100% { box-shadow: 0 0 25px #32ff7e, 0 0 50px #32ff7e inset; }
+}
 
-  @media (max-width: 600px) {
-    header h1 { font-size: 2.3em; }
-    .logo-icon { width: 60px; height: 45px; font-size: 1.2em; }
-    .container { grid-template-columns: 1fr; padding: 10px; }
-    .drive-section { width: 95%; padding: 30px; }
-  }
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.4; }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes scanLines {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 0 100%, 0 0; }
+}
+
+@media (max-width: 600px) {
+  header h1 { font-size: 2.3em; }
+  .logo-icon { width: 60px; height: 45px; font-size: 1.2em; }
+  .container { grid-template-columns: 1fr; padding: 10px; }
+  .drive-section { width: 95%; padding: 30px; }
+}
 </style>
 </head>
 <body>
@@ -251,59 +278,35 @@
 
 <div class="section-title">Websites</div>
 <div class="container">
-  <div class="project">
-    <h3>Website 1</h3>
-    <a href="https://flexinnovative.net/" target="_blank">Visit site</a>
-  </div>
-  <div class="project">
-    <h3>Website 2</h3>
-    <a href="https://azurifyenterprise.com/" target="_blank">Visit site</a>
-  </div>
-  <div class="project">
-    <h3>Website 3</h3>
-    <a href="https://sjesolution.com/" target="_blank">Visit site</a>
-  </div>
-  <div class="project">
-    <h3>Website 4</h3>
-    <a href="https://spectratrading.org/" target="_blank">Visit site</a>
-  </div>
-  <div class="project">
-    <h3>Website 5</h3>
-    <a href="https://isprojets.com/" target="_blank">Visit site</a>
-  </div>
-  <div class="project">
-    <h3>Website 6</h3>
-    <a href="https://innoteksolutions.org/" target="_blank">Visit site</a>
-  </div>
-  <div class="project">
-    <h3>Website 7</h3>
-    <a href="https://sacollectables.co.za/" target="_blank">Visit site</a>
-  </div>
-  <div class="project">
-    <h3>Website 8</h3>
-    <a href="https://vumaexpots.com/" target="_blank">Visit site</a>
-  </div>
-  <div class="project">
-    <h3>Website 9</h3>
-    <a href="https://nexifyenterprise.com/" target="_blank">Visit site</a>
-  </div>
+  <div class="project"><h3>Website 1</h3><a href="https://flexinnovative.net/" target="_blank">Visit site</a></div>
+  <div class="project"><h3>Website 2</h3><a href="https://azurifyenterprise.com/" target="_blank">Visit site</a></div>
+  <div class="project"><h3>Website 3</h3><a href="https://sjesolution.com/" target="_blank">Visit site</a></div>
+  <div class="project"><h3>Website 4</h3><a href="https://spectratrading.org/" target="_blank">Visit site</a></div>
+  <div class="project"><h3>Website 5</h3><a href="https://isprojets.com/" target="_blank">Visit site</a></div>
+  <div class="project"><h3>Website 6</h3><a href="https://innoteksolutions.org/" target="_blank">Visit site</a></div>
+  <div class="project"><h3>Website 7</h3><a href="https://sacollectables.co.za/" target="_blank">Visit site</a></div>
+  <div class="project"><h3>Website 8</h3><a href="https://vumaexpots.com/" target="_blank">Visit site</a></div>
+  <div class="project"><h3>Website 9</h3><a href="https://nexifyenterprise.com/" target="_blank">Visit site</a></div>
 </div>
 
 <script>
-  // --- Generate 100 floating particles across the entire page ---
-  const particleCount = 100;
-  for(let i=0; i<particleCount; i++){
-    const p = document.createElement('div');
-    p.classList.add('particle');
-    p.style.top = Math.random() * 100 + '%';
-    p.style.left = Math.random() * 100 + '%';
-    const size = Math.random() * 3 + 1;
-    p.style.width = size + 'px';
-    p.style.height = size + 'px';
-    p.style.animationDuration = (Math.random()*8 + 4) + 's';
-    p.style.animationDelay = Math.random() * 5 + 's';
-    document.body.appendChild(p);
-  }
+// --- Floating particles ---
+const particleCount = 120;
+for(let i=0;i<particleCount;i++){
+  const p = document.createElement('div');
+  p.classList.add('particle');
+  const size = Math.random() * 3 + 1;
+  p.style.width = size + 'px';
+  p.style.height = size + 'px';
+  p.style.top = Math.random() * 100 + '%';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.background = '#32ff7e';
+  p.style.opacity = Math.random() * 0.5 + 0.2;
+  p.style.setProperty('--drift', (Math.random() * 40 - 20) + 'px'); // random horizontal drift
+  p.style.animationDuration = (Math.random() * 10 + 5) + 's';
+  p.style.animationDelay = Math.random() * 5 + 's';
+  document.body.appendChild(p);
+}
 </script>
 
 </body>
