@@ -38,9 +38,33 @@
   /* --- Header --- */
   header {
     text-align: center;
-    padding: 60px 20px;
+    padding: 80px 20px 40px;
     position: relative;
     z-index: 1;
+    overflow: hidden;
+  }
+
+  /* --- Scanning Neon Lines --- */
+  header::before, header::after {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #32ff7e, transparent);
+    top: 30%;
+    left: -100%;
+    animation: scan 3s linear infinite;
+    opacity: 0.6;
+  }
+
+  header::after {
+    top: 70%;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
   }
 
   .logo-container {
@@ -48,6 +72,8 @@
     justify-content: center;
     align-items: center;
     gap: 12px;
+    position: relative;
+    z-index: 2;
   }
 
   .logo-icon {
@@ -73,12 +99,16 @@
     color: #32ff7e;
     text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e, 0 0 30px #32ff7e;
     animation: flicker 2s infinite alternate;
+    position: relative;
+    z-index: 2;
   }
 
   header p {
     margin-top: 10px;
     font-size: 1.1em;
     opacity: 0.8;
+    position: relative;
+    z-index: 2;
   }
 
   /* --- Section Titles --- */
@@ -178,12 +208,8 @@
   }
 
   @keyframes flicker {
-    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-      opacity: 1;
-    }
-    20%, 24%, 55% {
-      opacity: 0.4;
-    }
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+    20%, 24%, 55% { opacity: 0.4; }
   }
 
   @media (max-width: 600px) {
