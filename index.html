@@ -38,6 +38,7 @@
       font-size: 3.5em;
       color: #ff9f9f;
       text-shadow: 0 0 5px #ff9f9f, 0 0 15px #ff9f9f;
+      animation: slideInLeft 1s ease-out;
     }
 
     header p {
@@ -48,6 +49,7 @@
 
     .button-container {
       margin-top: 30px;
+      animation: slideInLeft 1s ease-out;
     }
 
     .button-container a {
@@ -66,6 +68,25 @@
       box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
     }
 
+    /* --- Slide In Animation --- */
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
     /* --- Design Section --- */
     .drive-section {
       background: #ffffff;
@@ -77,6 +98,7 @@
       width: 90%;
       max-width: 600px;
       box-shadow: 0 0 30px rgba(255, 159, 159, 0.2);
+      animation: slideInRight 1s ease-out;
     }
 
     .drive-section a {
@@ -95,7 +117,42 @@
       box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
     }
 
-    @media (max-width: 600px) {
+    /* --- Flexbox Layout --- */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin: 50px auto;
+    }
+
+    .card {
+      width: 300px;
+      height: 400px;
+      background-color: #fff;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
       header h1 { font-size: 2.3em; }
     }
   </style>
@@ -115,11 +172,19 @@
   </div>
 </header>
 
-<!-- Designs Section -->
-<div class="drive-section">
-  <h2>Designs, Photos & Videos</h2>
-  <p>Explore my creative collection:</p>
-  <a href="https://drive.google.com/drive/folders/1JeHOoXHlQUOfeBhwnxhSdlw8_lnjy0kl" target="_blank">Open Google Drive</a>
+<!-- Flex Container for Drive Section and Photo Card -->
+<div class="container">
+  <!-- Google Drive Section -->
+  <div class="drive-section">
+    <h2>Designs, Photos & Videos</h2>
+    <p>Explore my creative collection:</p>
+    <a href="https://drive.google.com/drive/folders/1JeHOoXHlQUOfeBhwnxhSdlw8_lnjy0kl" target="_blank">Open Google Drive</a>
+  </div>
+
+  <!-- Photo Card -->
+  <div class="card">
+    <img src="https://via.placeholder.com/300x400" alt="Creative Image">
+  </div>
 </div>
 
 </body>
