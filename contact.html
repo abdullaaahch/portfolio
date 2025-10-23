@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Me - Abzy Cyber Portfolio</title>
+  <title>Contact - Abzy Cyber Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,6 +12,9 @@
       padding: 0;
       background: #f5f5f5;
       color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     header {
@@ -24,12 +27,87 @@
     .content {
       padding: 40px;
       text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      margin-bottom: 20px;
     }
 
     .contact-form {
-      background: white;
-      padding: 30px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-      margin: 0 aut
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .contact-form button {
+      background-color: #ff9f9f;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #ff6f6f;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      margin-top: auto;
+    }
+
+    footer a {
+      color: #ff9f9f;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ff6f6f;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Contact Me</h1>
+</header>
+
+<div class="content">
+  <h2>Get in Touch</h2>
+  <p>If you have any questions or want to collaborate on a project, feel free to send me a message.</p>
+  
+  <form class="contact-form" action="your-backend-script.php" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="text" name="subject" placeholder="Subject" required>
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+<footer>
+  <p>&copy; 2025 Abdullah. All rights reserved.</p>
+  <p>Follow me on <a href="https://twitter.com" target="_blank">Twitter</a> | <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
+</footer>
+
+</body>
+</html>
