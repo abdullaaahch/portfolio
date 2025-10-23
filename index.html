@@ -23,14 +23,38 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      z-index: -1;
+      z-index: -1; /* Ensure video is behind everything */
     }
 
+    /* --- Navigation Styles --- */
+    nav {
+      background: rgba(51, 51, 51, 0.7); /* Semi-transparent background */
+      padding: 15px;
+      text-align: center;
+      position: relative;
+      z-index: 1; /* Ensure nav is above video background */
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 20px;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: #ff9f9f;
+      border-radius: 5px;
+    }
+
+    /* --- Header Styles --- */
     header {
       text-align: center;
       padding: 100px 20px 40px;
       position: relative;
-      z-index: 1;
+      z-index: 2; /* Ensure header content is above nav and video */
     }
 
     header h1 {
@@ -61,27 +85,6 @@
       color: #666;
     }
 
-    /* Navigation Styles */
-    nav {
-      background: #333;
-      padding: 15px;
-      text-align: center;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      padding: 10px 20px;
-      margin: 0 15px;
-      font-weight: bold;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover {
-      background-color: #ff9f9f;
-      border-radius: 5px;
-    }
-
     .button-container {
       margin-top: 30px;
     }
@@ -102,36 +105,7 @@
       box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
     }
 
-    /* --- Design Section --- */
-    .drive-section {
-      background: #ffffff;
-      color: #ff9f9f;
-      padding: 40px;
-      border-radius: 18px;
-      text-align: center;
-      margin: 50px auto 30px;
-      width: 90%;
-      max-width: 600px;
-      box-shadow: 0 0 30px rgba(255, 159, 159, 0.2);
-    }
-
-    .drive-section a {
-      color: #ffffff;
-      background: #ff9f9f;
-      padding: 12px 25px;
-      border-radius: 10px;
-      display: inline-block;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      text-decoration: none;
-    }
-
-    .drive-section a:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
-    }
-
-    /* --- Flexbox Layout --- */
+    /* --- Card Styling --- */
     .container {
       display: flex;
       justify-content: center;
@@ -148,8 +122,32 @@
       border-radius: 15px;
       overflow: hidden;
       position: relative;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-align: center;
     }
 
+    .card a {
+      color: #fff;
+      background: #ff9f9f;
+      padding: 12px 25px;
+      border-radius: 10px;
+      display: inline-block;
+      font-weight: bold;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+
+    .card a:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
+    }
+
+    /* Media query for responsiveness */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -183,36 +181,29 @@
   <h1>DigitalVerse</h1>
   <p><b>Portfolio by Abdullah</b></p>
   <nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About Me</a>
-  <a href="contact.html">Contact</a>
-</nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <div class="button-container">
     <a href="projects.html">See My Projects</a>
   </div>
 </header>
 
-<!-- Flex Container for Drive Section -->
+<!-- Flex Container for Cards Section -->
 <div class="container">
-  <!-- Google Drive Section -->
-  <div class="drive-section">
-    <h2>Designs, Photos & Videos</h2>
+  <!-- Card 1: Google Drive Section -->
+  <div class="card" style="background-image: url('https://example.com/path-to-your-image.jpg');">
+    <h3>Designs, Photos & Videos</h3>
     <p>Explore my creative collection:</p>
     <a href="https://drive.google.com/drive/folders/1JeHOoXHlQUOfeBhwnxhSdlw8_lnjy0kl" target="_blank">Open Google Drive</a>
   </div>
-</div>
 
-<!-- About and Contact Links -->
-<div class="container">
-  <div class="card">
-    <h3>About</h3>
-    <p>Learn more about my journey and expertise.</p>
-    <a href="about.html">About Me</a>
-  </div>
-  <div class="card">
-    <h3>Contact</h3>
-    <p>Get in touch with me for collaborations or inquiries.</p>
-    <a href="contact.html">Contact Me</a>
+  <!-- Card 2: Projects Section -->
+  <div class="card" style="background-image: url('https://example.com/path-to-your-image.jpg');">
+    <h3>My Projects</h3>
+    <p>Check out my latest work.</p>
+    <a href="projects.html">See My Projects</a>
   </div>
 </div>
 
