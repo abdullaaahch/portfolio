@@ -44,7 +44,6 @@
     overflow: hidden;
   }
 
-  /* --- Scanning Neon Lines --- */
   header::before, header::after {
     content: '';
     position: absolute;
@@ -156,13 +155,33 @@
     text-align: center;
     border: 1px solid #32ff7e;
     box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
+    cursor: pointer;
   }
 
+  /* Hover effect */
   .project:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 30px #32ff7e, 0 0 60px #32ff7e inset;
+  }
+
+  /* Click animation */
+  .project:active {
+    animation: clickPulse 0.3s forwards;
+    transform: scale(0.97) rotateX(5deg) rotateY(5deg);
+  }
+
+  @keyframes clickPulse {
+    0% {
+      box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset;
+    }
+    50% {
+      box-shadow: 0 0 40px #32ff7e, 0 0 70px #32ff7e inset;
+    }
+    100% {
+      box-shadow: 0 0 20px #32ff7e, 0 0 50px #32ff7e inset;
+    }
   }
 
   .project h3 {
