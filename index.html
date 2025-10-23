@@ -82,13 +82,15 @@
       box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
     }
 
+    /* Transparent Nav Buttons */
     .nav-buttons {
       margin-top: 20px;
     }
 
     .nav-buttons a {
-      color: #ffffff;
-      background: #333;
+      color: #ff9f9f; /* Light pink text color */
+      background: transparent; /* Transparent background */
+      border: 2px solid #ff9f9f; /* Pink border */
       padding: 10px 20px;
       border-radius: 10px;
       margin: 5px;
@@ -99,7 +101,9 @@
     }
 
     .nav-buttons a:hover {
-      background: #ff9f9f;
+      color: #fff; /* White text on hover */
+      background: #ff9f9f; /* Pink background on hover */
+      border: 2px solid #ff9f9f; /* Pink border on hover */
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
     }
@@ -193,7 +197,10 @@
 
 <header>
   <h1>DigitalVerse</h1>
-  <p><b>Portfolio by Abdullah</b></p> 
+  <p><b>Portfolio by Abdullah</b></p>
+  <div class="button-container">
+    <a href="projects.html">See My Projects</a>
+  </div>
   <!-- New navigation buttons -->
   <div class="nav-buttons">
     <a href="index.html">Home</a>
@@ -206,7 +213,7 @@
 <div class="container">
   <!-- Card 1: Open Google Drive (Extended Left) -->
   <div class="card">
-    <img src="https://example.com/path-to-your-image.jpg" alt="Google Drive">
+    <img src="https://img.freepik.com/free-vector/camera-banners-set_1284-14002.jpg" alt="Google Drive">
     <div class="card-content">
       <h3>Designs, Photos & Videos</h3>
       <p>Explore my creative collection:</p>
