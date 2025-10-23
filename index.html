@@ -16,6 +16,7 @@
       transition: all 0.3s ease;
     }
 
+    /* Video background */
     .video-background {
       position: fixed;
       top: 0;
@@ -26,17 +27,37 @@
       z-index: -1;
     }
 
+    /* Header */
     header {
-      text-align: center;
-      padding: 100px 20px 40px;
-      position: relative;
-      z-index: 1;
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    /* Flickering effect for the heading */
+    header nav {
+      text-align: center;
+    }
+
+    header nav a {
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    header nav a:hover {
+      background-color: #ff9f9f;
+      border-radius: 5px;
+    }
+
     header h1 {
+      text-align: center;
       margin: 0;
-      font-size: 3.5em;
+      font-size: 2.5em;
       color: #ff9f9f;
       text-shadow: 0 0 5px #ff9f9f, 0 0 15px #ff9f9f;
       animation: flicker 1.5s infinite alternate;
@@ -60,11 +81,13 @@
     header p {
       margin-top: 10px;
       font-size: 1.2em;
-      color: #666;
+      color: #ccc;
     }
 
+    /* Button container */
     .button-container {
       margin-top: 30px;
+      text-align: center;
     }
 
     .button-container a {
@@ -131,6 +154,25 @@
       position: relative;
     }
 
+    /* Footer */
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #ff9f9f;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Media Queries for responsiveness */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
@@ -148,9 +190,16 @@
   Your browser does not support the video tag.
 </video>
 
+<!-- Header -->
 <header>
   <h1>DigitalVerse</h1>
   <p><b>Portfolio by Abdullah</b></p>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="projects.html">Projects</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <div class="button-container">
     <a href="projects.html">See My Projects</a>
   </div>
@@ -158,7 +207,6 @@
 
 <!-- Flex Container for Drive Section -->
 <div class="container">
-  <!-- Google Drive Section -->
   <div class="drive-section">
     <h2>Designs, Photos & Videos</h2>
     <p>Explore my creative collection:</p>
@@ -179,6 +227,12 @@
     <a href="contact.html">Contact Me</a>
   </div>
 </div>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Abdullah. All rights reserved.</p>
+  <p>Follow me on <a href="https://twitter.com" target="_blank">Twitter</a> | <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
+</footer>
 
 </body>
 </html>
