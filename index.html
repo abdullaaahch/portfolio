@@ -82,6 +82,28 @@
       box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
     }
 
+    .nav-buttons {
+      margin-top: 20px;
+    }
+
+    .nav-buttons a {
+      color: #ffffff;
+      background: #333;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin: 5px;
+      display: inline-block;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .nav-buttons a:hover {
+      background: #ff9f9f;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
+    }
+
     /* Card Styles */
     .container {
       display: flex;
@@ -171,9 +193,12 @@
 
 <header>
   <h1>DigitalVerse</h1>
-  <p><b>Portfolio by Abdullah</b></p>
-  <div class="button-container">
-    <a href="projects.html">See My Projects</a>
+  <p><b>Portfolio by Abdullah</b></p> 
+  <!-- New navigation buttons -->
+  <div class="nav-buttons">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="contact.html">Contact</a>
   </div>
 </header>
 
