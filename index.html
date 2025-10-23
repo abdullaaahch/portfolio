@@ -31,7 +31,7 @@
   @keyframes float {
     0% { transform: translateY(0) translateX(0); opacity: 0.3; }
     50% { opacity: 1; }
-    100% { transform: translateY(-1200px) translateX(300px); opacity: 0; }
+    100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
   }
 
   /* --- Header --- */
@@ -297,9 +297,11 @@
     p.classList.add('particle');
     p.style.top = Math.random() * 100 + '%';
     p.style.left = Math.random() * 100 + '%';
-    p.style.width = (Math.random()*3 + 1) + 'px';
-    p.style.height = p.style.width;
+    const size = Math.random() * 3 + 1;
+    p.style.width = size + 'px';
+    p.style.height = size + 'px';
     p.style.animationDuration = (Math.random()*8 + 4) + 's';
+    p.style.animationDelay = Math.random() * 5 + 's';
     document.body.appendChild(p);
   }
 </script>
