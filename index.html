@@ -4,50 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Abzy Cyber Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 /* --- Global Styles --- */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', Arial, sans-serif;
-  background: linear-gradient(270deg, #0f0f0f, #111, #0f0f0f);
-  background-size: 600% 600%;
-  color: #e0e0e0;
+  background: linear-gradient(135deg, #f6d1d1, #f1e1f1);
+  color: #333;
   overflow-x: hidden;
   position: relative;
-  animation: gradientShift 20s ease infinite;
-}
-
-/* --- Holographic Scan Lines Overlay --- */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  background-image: 
-    linear-gradient(rgba(50,255,126,0.05) 1px, transparent 1px),
-    repeating-linear-gradient(90deg, rgba(50,255,126,0.02), rgba(50,255,126,0.02) 2px, transparent 2px, transparent 4px);
-  background-size: 100% 4px, 4px 100%;
-  z-index: 10;
-  animation: scanLines 3s linear infinite;
-}
-
-/* --- Full Page Neon Particles --- */
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.4;
-  animation: float linear infinite;
-}
-
-@keyframes float {
-  0% { transform: translateY(0) translateX(0); opacity: 0.3; }
-  50% { opacity: 1; }
-  100% { transform: translateY(-110vh) translateX(var(--drift, 0px)); opacity: 0; }
+  transition: all 0.3s ease;
 }
 
 /* --- Header --- */
@@ -56,83 +24,29 @@ header {
   padding: 100px 20px 40px;
   position: relative;
   z-index: 1;
-  overflow: hidden;
-}
-
-header::before, header::after {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #32ff7e, transparent);
-  top: 30%;
-  left: -100%;
-  animation: scan 3s linear infinite;
-  opacity: 0.6;
-}
-
-header::after {
-  top: 70%;
-  animation-delay: 1.5s;
-}
-
-@keyframes scan {
-  0% { left: -100%; }
-  100% { left: 100%; }
-}
-
-.logo-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-  z-index: 2;
-}
-
-.logo-icon {
-  width: 70px;
-  height: 50px;
-  border-radius: 12px;
-  background: radial-gradient(circle at 30% 30%, #32ff7e, #0f0f0f);
-  box-shadow: 0 0 25px #32ff7e, 0 0 50px #32ff7e inset;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: 'Orbitron', sans-serif;
-  font-weight: 800;
-  font-size: 1.4em;
-  color: #0f0f0f;
-  animation: neonGlow 3s ease-in-out infinite alternate;
 }
 
 header h1 {
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  font-size: 3em;
-  color: #32ff7e;
-  text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e, 0 0 30px #32ff7e;
-  animation: flicker 2s infinite alternate;
-  position: relative;
-  z-index: 2;
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5em;
+  color: #ff9f9f;
+  text-shadow: 0 0 5px #ff9f9f, 0 0 15px #ff9f9f;
 }
 
 header p {
   margin-top: 10px;
-  font-size: 1.1em;
-  opacity: 0.8;
-  position: relative;
-  z-index: 2;
+  font-size: 1.2em;
+  color: #666;
 }
 
 /* --- Section Titles --- */
 .section-title {
   text-align: center;
-  font-size: 1.6em;
-  font-weight: 700;
+  font-size: 1.8em;
+  font-weight: 600;
   margin: 40px 0 15px;
-  color: #32ff7e;
-  text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e;
+  color: #ff9f9f;
 }
 
 /* --- Container --- */
@@ -147,12 +61,12 @@ header p {
 
 /* --- Project Cards --- */
 .project {
-  background: #111;
+  background: #ffffff;
   border-radius: 15px;
   padding: 25px;
   text-align: center;
-  border: 1px solid #32ff7e;
-  box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset;
+  border: 1px solid #ff9f9f;
+  box-shadow: 0 0 15px rgba(255, 159, 159, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   cursor: pointer;
@@ -160,80 +74,31 @@ header p {
 
 .project:hover {
   transform: translateY(-10px);
-  box-shadow: 0 0 30px #32ff7e, 0 0 60px #32ff7e inset;
-}
-
-/* --- Cyberpunk click glitch effect --- */
-.project:active {
-  animation: clickGlitch 0.4s forwards;
-}
-
-@keyframes clickGlitch {
-  0% { transform: scale(1); box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset; }
-  20% { transform: scale(0.95) skewX(5deg); box-shadow: 0 0 35px #32ff7e, 0 0 50px #32ff7e inset; }
-  40% { transform: scale(1.05) skewY(5deg); box-shadow: 0 0 50px #32ff7e, 0 0 70px #32ff7e inset; }
-  60% { transform: scale(0.98) skewX(-5deg); box-shadow: 0 0 35px #32ff7e, 0 0 50px #32ff7e inset; }
-  80% { transform: scale(1.02) skewY(-3deg); box-shadow: 0 0 40px #32ff7e, 0 0 60px #32ff7e inset; }
-  100% { transform: scale(1); box-shadow: 0 0 20px #32ff7e, 0 0 40px #32ff7e inset; }
+  box-shadow: 0 0 20px rgba(255, 159, 159, 0.6);
 }
 
 .project h3 {
-  color: #32ff7e;
+  color: #ff9f9f;
   margin-bottom: 12px;
-  text-shadow: 0 0 5px #32ff7e, 0 0 15px #32ff7e;
-}
-
-/* --- Glitch Titles --- */
-.glitch {
-  position: relative;
-}
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-}
-.glitch:hover::before {
-  animation: glitchTop 0.3s linear infinite;
-}
-.glitch:hover::after {
-  animation: glitchBottom 0.3s linear infinite;
-}
-@keyframes glitchTop {
-  0% { clip: rect(0, 9999px, 4px, 0); transform: translate(-2px, -2px); opacity: 0.8; }
-  25% { clip: rect(5px, 9999px, 12px, 0); transform: translate(2px, 2px); opacity: 0.6; }
-  50% { clip: rect(12px, 9999px, 16px, 0); transform: translate(-1px, 1px); opacity: 0.7; }
-  75% { clip: rect(8px, 9999px, 14px, 0); transform: translate(1px, -1px); opacity: 0.6; }
-  100% { clip: rect(0, 9999px, 4px, 0); transform: translate(0, 0); opacity: 0.8; }
-}
-@keyframes glitchBottom {
-  0% { clip: rect(20px, 9999px, 30px, 0); transform: translate(2px, 2px); opacity: 0.7; }
-  25% { clip: rect(18px, 9999px, 25px, 0); transform: translate(-2px, -2px); opacity: 0.6; }
-  50% { clip: rect(22px, 9999px, 28px, 0); transform: translate(1px, -1px); opacity: 0.8; }
-  75% { clip: rect(24px, 9999px, 30px, 0); transform: translate(-1px, 1px); opacity: 0.6; }
-  100% { clip: rect(20px, 9999px, 30px, 0); transform: translate(2px, 2px); opacity: 0.7; }
+  font-weight: 600;
 }
 
 /* --- Drive Section --- */
 .drive-section {
-  background: #111;
-  color: #32ff7e;
+  background: #ffffff;
+  color: #ff9f9f;
   padding: 40px;
   border-radius: 18px;
   text-align: center;
   margin: 50px auto 30px;
   width: 90%;
   max-width: 600px;
-  box-shadow: 0 0 30px #32ff7e, 0 0 60px #32ff7e inset;
+  box-shadow: 0 0 30px rgba(255, 159, 159, 0.2);
 }
 
 .drive-section a {
-  color: #0f0f0f;
-  background: #32ff7e;
+  color: #ffffff;
+  background: #ff9f9f;
   padding: 12px 25px;
   border-radius: 10px;
   display: inline-block;
@@ -243,57 +108,30 @@ header p {
 
 .drive-section a:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px #32ff7e;
+  box-shadow: 0 0 20px rgba(255, 159, 159, 0.5);
 }
 
 /* --- Animations --- */
-@keyframes neonGlow {
-  0% { box-shadow: 0 0 25px #32ff7e, 0 0 50px #32ff7e inset; }
-  50% { box-shadow: 0 0 40px #32ff7e, 0 0 70px #32ff7e inset; }
-  100% { box-shadow: 0 0 25px #32ff7e, 0 0 50px #32ff7e inset; }
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
-  20%, 24%, 55% { opacity: 0.4; }
-}
+/* --- Glitch Effect Removed --- */
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes scanLines {
-  0% { background-position: 0 0, 0 0; }
-  100% { background-position: 0 100%, 0 0; }
-}
-
-@keyframes pageGlitch {
-  0%, 100% { filter: none; }
-  20% { filter: hue-rotate(5deg) blur(1px); }
-  40% { filter: hue-rotate(-5deg) blur(0.5px); }
-  60% { filter: hue-rotate(3deg) blur(1px); }
-  80% { filter: hue-rotate(-3deg) blur(0.5px); }
-}
-
-body.glitchActive {
-  animation: pageGlitch 0.3s infinite;
-}
-
+/* --- Mobile Responsiveness --- */
 @media (max-width: 600px) {
   header h1 { font-size: 2.3em; }
-  .logo-icon { width: 60px; height: 45px; font-size: 1.2em; }
   .container { grid-template-columns: 1fr; padding: 10px; }
   .drive-section { width: 95%; padding: 30px; }
 }
+
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo-container">
-  
     <h1>DigitalVerse</h1>
   </div>
   <p><b>Portfolio by Abdullah</b></p>
@@ -317,42 +155,6 @@ body.glitchActive {
   <div class="project"><h3>Website 8</h3><a href="https://vumaexpots.com/" target="_blank">Visit site</a></div>
   <div class="project"><h3>Website 9</h3><a href="https://nexifyenterprise.com/" target="_blank">Visit site</a></div>
 </div>
-
-<script>
-// --- Floating particles ---
-const particleCount = 120;
-for(let i=0;i<particleCount;i++){
-  const p = document.createElement('div');
-  p.classList.add('particle');
-  const size = Math.random() * 3 + 1;
-  p.style.width = size + 'px';
-  p.style.height = size + 'px';
-  p.style.top = Math.random() * 100 + '%';
-  p.style.left = Math.random() * 100 + '%';
-  p.style.background = '#32ff7e';
-  p.style.opacity = Math.random() * 0.5 + 0.2;
-  p.style.setProperty('--drift', (Math.random() * 40 - 20) + 'px');
-  p.style.animationDuration = (Math.random() * 10 + 5) + 's';
-  p.style.animationDelay = Math.random() * 5 + 's';
-  document.body.appendChild(p);
-}
-
-// --- Page Glitch Flicker on Hover ---
-let glitchTimeout;
-document.body.addEventListener('mousemove', () => {
-  document.body.classList.add('glitchActive');
-  clearTimeout(glitchTimeout);
-  glitchTimeout = setTimeout(() => {
-    document.body.classList.remove('glitchActive');
-  }, 150);
-});
-
-// --- Add glitch class to all project cards ---
-document.querySelectorAll('.project h3').forEach(h => {
-  h.classList.add('glitch');
-  h.setAttribute('data-text', h.textContent);
-});
-</script>
 
 </body>
 </html>
