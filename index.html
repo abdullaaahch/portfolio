@@ -33,12 +33,50 @@
       z-index: 1;
     }
 
+    /* Flickering effect for the heading */
     header h1 {
       margin: 0;
       font-size: 3.5em;
       color: #ff9f9f;
       text-shadow: 0 0 5px #ff9f9f, 0 0 15px #ff9f9f;
-      animation: slideInLeft 1s ease-out;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    /* Flicker effect animation */
+    @keyframes flicker {
+      0% {
+        opacity: 1;
+      }
+      10% {
+        opacity: 0.5;
+      }
+      20% {
+        opacity: 1;
+      }
+      30% {
+        opacity: 0.7;
+      }
+      40% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.3;
+      }
+      60% {
+        opacity: 1;
+      }
+      70% {
+        opacity: 0.8;
+      }
+      80% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 1;
+      }
     }
 
     header p {
