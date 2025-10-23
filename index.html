@@ -16,7 +16,6 @@
       transition: all 0.3s ease;
     }
 
-    /* Video background */
     .video-background {
       position: fixed;
       top: 0;
@@ -27,32 +26,45 @@
       z-index: -1;
     }
 
-    /* Navigation */
-    nav {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 100;
+    header {
+      text-align: center;
+      padding: 100px 20px 40px;
+      position: relative;
+      z-index: 1;
     }
 
-    nav a {
-      color: #fff;
-      padding: 10px 20px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      margin: 0 10px;
+    /* Flickering effect for the heading */
+    header h1 {
+      margin: 0;
+      font-size: 3.5em;
+      color: #ff9f9f;
+      text-shadow: 0 0 5px #ff9f9f, 0 0 15px #ff9f9f;
+      animation: flicker 1.5s infinite alternate;
     }
 
-    nav a:hover {
-      background-color: #ff9f9f;
-      border-radius: 5px;
+    /* Flicker effect animation */
+    @keyframes flicker {
+      0% { opacity: 1; }
+      10% { opacity: 0.5; }
+      20% { opacity: 1; }
+      30% { opacity: 0.7; }
+      40% { opacity: 1; }
+      50% { opacity: 0.3; }
+      60% { opacity: 1; }
+      70% { opacity: 0.8; }
+      80% { opacity: 1; }
+      90% { opacity: 0.6; }
+      100% { opacity: 1; }
     }
 
-    /* Button container */
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+      color: #666;
+    }
+
     .button-container {
       margin-top: 30px;
-      text-align: center;
     }
 
     .button-container a {
@@ -119,30 +131,13 @@
       position: relative;
     }
 
-    /* Footer */
-    footer {
-      background-color: #333;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-
-    footer a {
-      color: #ff9f9f;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    /* Media Queries for responsiveness */
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
         align-items: center;
       }
+
+      header h1 { font-size: 2.3em; }
     }
   </style>
 </head>
@@ -153,15 +148,17 @@
   Your browser does not support the video tag.
 </video>
 
-<!-- Navigation -->
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="contact.html">Contact</a>
-</nav>
+<header>
+  <h1>DigitalVerse</h1>
+  <p><b>Portfolio by Abdullah</b></p>
+  <div class="button-container">
+    <a href="projects.html">See My Projects</a>
+  </div>
+</header>
 
 <!-- Flex Container for Drive Section -->
 <div class="container">
+  <!-- Google Drive Section -->
   <div class="drive-section">
     <h2>Designs, Photos & Videos</h2>
     <p>Explore my creative collection:</p>
@@ -182,12 +179,6 @@
     <a href="contact.html">Contact Me</a>
   </div>
 </div>
-
-<!-- Footer -->
-<footer>
-  <p>&copy; 2025 Abdullah. All rights reserved.</p>
-  <p>Follow me on <a href="https://twitter.com" target="_blank">Twitter</a> | <a href="https://linkedin.com" target="_blank">LinkedIn</a></p>
-</footer>
 
 </body>
 </html>
