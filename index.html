@@ -17,22 +17,21 @@
     position: relative;
   }
 
-  /* --- Neon Grid Background --- */
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(#0f0f0f 1px, transparent 1px),
-                linear-gradient(90deg, #0f0f0f 1px, transparent 1px);
-    background-size: 50px 50px;
-    z-index: -2;
-    animation: moveGrid 20s linear infinite;
+  /* --- Full Page Neon Particles --- */
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #32ff7e;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float linear infinite;
   }
 
-  @keyframes moveGrid {
-    0% { background-position: 0 0, 0 0; }
-    100% { background-position: 100px 100px, 100px 100px; }
+  @keyframes float {
+    0% { transform: translateY(0) translateX(0); opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-1200px) translateX(300px); opacity: 0; }
   }
 
   /* --- Header --- */
@@ -64,23 +63,6 @@
   @keyframes scan {
     0% { left: -100%; }
     100% { left: 100%; }
-  }
-
-  /* --- Floating Neon Particles --- */
-  .particle {
-    position: absolute;
-    width: 3px;
-    height: 3px;
-    background: #32ff7e;
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: floatParticles linear infinite;
-  }
-
-  @keyframes floatParticles {
-    0% { transform: translateY(0) translateX(0); opacity: 0.5; }
-    50% { opacity: 1; }
-    100% { transform: translateY(-150px) translateX(50px); opacity: 0; }
   }
 
   .logo-container {
@@ -160,28 +142,23 @@
     cursor: pointer;
   }
 
-  /* Hover effect */
   .project:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 30px #32ff7e, 0 0 60px #32ff7e inset;
   }
 
-  /* Click animation */
+  /* --- Cyberpunk click glitch effect --- */
   .project:active {
-    animation: clickPulse 0.3s forwards;
-    transform: scale(0.97) rotateX(5deg) rotateY(5deg);
+    animation: clickGlitch 0.4s forwards;
   }
 
-  @keyframes clickPulse {
-    0% {
-      box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset;
-    }
-    50% {
-      box-shadow: 0 0 40px #32ff7e, 0 0 70px #32ff7e inset;
-    }
-    100% {
-      box-shadow: 0 0 20px #32ff7e, 0 0 50px #32ff7e inset;
-    }
+  @keyframes clickGlitch {
+    0% { transform: scale(1); box-shadow: 0 0 10px #32ff7e, 0 0 30px #32ff7e inset; }
+    20% { transform: scale(0.95) skewX(5deg); box-shadow: 0 0 35px #32ff7e, 0 0 50px #32ff7e inset; }
+    40% { transform: scale(1.05) skewY(5deg); box-shadow: 0 0 50px #32ff7e, 0 0 70px #32ff7e inset; }
+    60% { transform: scale(0.98) skewX(-5deg); box-shadow: 0 0 35px #32ff7e, 0 0 50px #32ff7e inset; }
+    80% { transform: scale(1.02) skewY(-3deg); box-shadow: 0 0 40px #32ff7e, 0 0 60px #32ff7e inset; }
+    100% { transform: scale(1); box-shadow: 0 0 20px #32ff7e, 0 0 40px #32ff7e inset; }
   }
 
   .project h3 {
@@ -257,65 +234,75 @@
 </style>
 </head>
 <body>
-  <header>
-    <div class="logo-container">
-      <div class="logo-icon">Abzy</div>
-      <h1>MY PORTFOLIO</h1>
-    </div>
-    <p>Created by <b>Abzyyy</b></p>
 
-    <!-- Neon particles -->
-    <div class="particle" style="top:20%; left:10%; animation-duration:4s;"></div>
-    <div class="particle" style="top:50%; left:30%; animation-duration:5s;"></div>
-    <div class="particle" style="top:70%; left:60%; animation-duration:6s;"></div>
-    <div class="particle" style="top:30%; left:80%; animation-duration:4.5s;"></div>
-    <div class="particle" style="top:10%; left:50%; animation-duration:5.5s;"></div>
-  </header>
-
-  <div class="drive-section">
-    <h2>Designs, Photos & Videos</h2>
-    <p>Explore my creative collection:</p>
-    <a href="https://drive.google.com/drive/folders/1JeHOoXHlQUOfeBhwnxhSdlw8_lnjy0kl" target="_blank">Open Google Drive</a>
+<header>
+  <div class="logo-container">
+    <div class="logo-icon">Abzy</div>
+    <h1>MY PORTFOLIO</h1>
   </div>
+  <p>Created by <b>Abzyyy</b></p>
+</header>
 
-  <div class="section-title">Websites</div>
-  <div class="container">
-    <div class="project">
-      <h3>Website 1</h3>
-      <a href="https://flexinnovative.net/" target="_blank">Visit site</a>
-    </div>
-    <div class="project">
-      <h3>Website 2</h3>
-      <a href="https://azurifyenterprise.com/" target="_blank">Visit site</a>
-    </div>
-    <div class="project">
-      <h3>Website 3</h3>
-      <a href="https://sjesolution.com/" target="_blank">Visit site</a>
-    </div>
-    <div class="project">
-      <h3>Website 4</h3>
-      <a href="https://spectratrading.org/" target="_blank">Visit site</a>
-    </div>
-    <div class="project">
-      <h3>Website 5</h3>
-      <a href="https://isprojets.com/" target="_blank">Visit site</a>
-    </div>
-    <div class="project">
-      <h3>Website 6</h3>
-      <a href="https://innoteksolutions.org/" target="_blank">Visit site</a>
-    </div>
-    <div class="project">
-      <h3>Website 7</h3>
-      <a href="https://sacollectables.co.za/" target="_blank">Visit site</a>
-    </div>
-    <div class="project">
-      <h3>Website 8</h3>
-      <a href="https://vumaexpots.com/" target="_blank">Visit site</a>
-    </div>
-    <div class="project">
-      <h3>Website 9</h3>
-      <a href="https://nexifyenterprise.com/" target="_blank">Visit site</a>
-    </div>
+<div class="drive-section">
+  <h2>Designs, Photos & Videos</h2>
+  <p>Explore my creative collection:</p>
+  <a href="https://drive.google.com/drive/folders/1JeHOoXHlQUOfeBhwnxhSdlw8_lnjy0kl" target="_blank">Open Google Drive</a>
+</div>
+
+<div class="section-title">Websites</div>
+<div class="container">
+  <div class="project">
+    <h3>Website 1</h3>
+    <a href="https://flexinnovative.net/" target="_blank">Visit site</a>
   </div>
+  <div class="project">
+    <h3>Website 2</h3>
+    <a href="https://azurifyenterprise.com/" target="_blank">Visit site</a>
+  </div>
+  <div class="project">
+    <h3>Website 3</h3>
+    <a href="https://sjesolution.com/" target="_blank">Visit site</a>
+  </div>
+  <div class="project">
+    <h3>Website 4</h3>
+    <a href="https://spectratrading.org/" target="_blank">Visit site</a>
+  </div>
+  <div class="project">
+    <h3>Website 5</h3>
+    <a href="https://isprojets.com/" target="_blank">Visit site</a>
+  </div>
+  <div class="project">
+    <h3>Website 6</h3>
+    <a href="https://innoteksolutions.org/" target="_blank">Visit site</a>
+  </div>
+  <div class="project">
+    <h3>Website 7</h3>
+    <a href="https://sacollectables.co.za/" target="_blank">Visit site</a>
+  </div>
+  <div class="project">
+    <h3>Website 8</h3>
+    <a href="https://vumaexpots.com/" target="_blank">Visit site</a>
+  </div>
+  <div class="project">
+    <h3>Website 9</h3>
+    <a href="https://nexifyenterprise.com/" target="_blank">Visit site</a>
+  </div>
+</div>
+
+<script>
+  // --- Generate 100 floating particles across the entire page ---
+  const particleCount = 100;
+  for(let i=0; i<particleCount; i++){
+    const p = document.createElement('div');
+    p.classList.add('particle');
+    p.style.top = Math.random() * 100 + '%';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.width = (Math.random()*3 + 1) + 'px';
+    p.style.height = p.style.width;
+    p.style.animationDuration = (Math.random()*8 + 4) + 's';
+    document.body.appendChild(p);
+  }
+</script>
+
 </body>
 </html>
